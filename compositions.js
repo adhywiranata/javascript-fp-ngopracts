@@ -25,3 +25,11 @@ function compose() {
 const composedFunc = compose(addByTwo, multByThree);
 
 console.log(composedFunc(5));
+
+// 3. creating a compose function using reduceRight
+
+const compose2 = (...fns) => param => fns.reduceRight((reduced, fn) => fn(reduced), param);
+
+const composed2Func = compose2(addByTwo, multByThree);
+
+console.log(composed2Func(5));
